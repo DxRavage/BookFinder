@@ -14,7 +14,7 @@
 <section class="mt-8" id="bookDetails"></section>
 
 <section
-  class="mt-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
   id="booksContainer"
 >
 </section>
@@ -109,7 +109,7 @@
       books.forEach((book, index) => {
         const bookDiv = document.createElement("div");
         bookDiv.className =
-          "p-4 bg-moss hover:bg-hover text-earie rounded-lg cursor-pointer shadow-sm shadow-earie";
+          "p-4 bg-moss hover:bg-hover text-earie rounded-lg cursor-pointer shadow-sm shadow-earie mx-auto";
         bookDiv.dataset.bookIndex = index.toString(); // Store the index to retrieve book details
 
         bookDiv.addEventListener("click", () => {
@@ -120,7 +120,7 @@
 
         let imageElement;
         if (book.thumbnail) {
-          imageElement = ` <a href="#bookDetails"> <img class="w-56 md:w-64 hover:opacity-65 object-cover rounded-md shadow-sm shadow-earie" src="${book.thumbnail}" alt="${book.title}" width="150" height="200" /></a>`;
+          imageElement = ` <a href="#bookDetails"> <img class="w-48 md:w-60 lg:w-96 hover:opacity-65 object-cover rounded-md shadow-sm shadow-earie" src="${book.thumbnail}" alt="${book.title}" width="150" height="200" /></a>`;
         } else {
           imageElement = `<p class="text-center text-earie">No Image Available</p>`;
         }
