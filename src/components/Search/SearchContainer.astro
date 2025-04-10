@@ -1,20 +1,17 @@
 <section class="flex justify-center text-center gap-4">
   <input
-    class="p-2 rounded-md border border-citron text-black"
+    class="p-2 rounded-md border border-citron text-earie focus:outline-none focus:ring-2 focus:ring-moss focus:border-transparent"
     type="text"
     id="queryInput"
     placeholder="Enter your query"
   />
   <button
-    class="bg-moss hover:bg-emerald text-silk px-4 py-2 rounded-lg cursor-pointer"
+    class="bg-moss hover:bg-emerald text-silk px-4 py-2 rounded-lg cursor-pointer shadow-sm shadow-earie"
     id="updateButton">Search</button
   >
 </section>
 
-<section class="mt-8" id="bookDetails"
->
-
-</section>
+<section class="mt-8" id="bookDetails"></section>
 
 <section
   class="mt-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"
@@ -55,8 +52,7 @@
         json.items?.map((item: any) => ({
           title: item.volumeInfo?.title || "No title",
           authors: item.volumeInfo?.authors || ["Unknown"],
-          description:
-            item.volumeInfo?.description || "No description available",
+          description:item.volumeInfo?.description || "No description available",
           thumbnail: item.volumeInfo?.imageLinks?.thumbnail || null,
           publishedDate: item.volumeInfo?.publishedDate || "Unknown",
           categories: item.volumeInfo?.categories || [],
@@ -81,19 +77,19 @@
         : `<p class="text-center text-earie">No Image Available</p>`;
 
       bookDetailsContainer.innerHTML = `
-        <div class="bg-silk p-6 rounded-md shadow-md text-left">
+        <div class="bg-silk p-4 rounded-md shadow-md shadow-earie text-left">
           <div class="flex gap-4 mb-4">
             ${imageElement}
             <div>
-              <h2 class="font-bold text-xl text-moss">${book.title}</h2>
+              <h2 class="font-bold text-sm md:text-xl text-moss">${book.title}</h2>
               <p class="text-sm opacity-75 text-citron">${book.authors.join(", ")}</p>
-              ${book.publishedDate ? `<p class="text-sm text-earie">Published: ${book.publishedDate}</p>` : ""}
-              ${book.averageRating ? `<p class="text-sm text-earie">Rating: ${book.averageRating} (${book.ratingsCount || "No"} ratings)</p>` : ""}
-              ${book.categories && book.categories.length > 0 ? `<p class="text-sm text-earie">Categories: ${book.categories.join(", ")}</p>` : ""}
+              ${book.publishedDate ? `<p class="text-xs md:text-sm text-earie">Published: ${book.publishedDate}</p>` : ""}
+              ${book.averageRating ? `<p class="text-xs md:text-sm text-earie">Rating: ${book.averageRating} (${book.ratingsCount || "No"} ratings)</p>` : ""}
+              ${book.categories && book.categories.length > 0 ? `<p class="text-xs md:text-sm text-earie">Categories: ${book.categories.join(", ")}</p>` : ""}
               ${book.previewLink ? `<a href="${book.previewLink}" target="_blank" class="text-blue-500 hover:underline">Preview</a>` : ""}
               </div>
           </div>
-          <p class="text-earie">${book.description}</p>
+          <p class="text-earie text-xs md:text-sm">${book.description}</p>
         </div>
       `;
       bookDetailsContainer.style.display = "block"; // Make the details visible
@@ -113,7 +109,7 @@
       books.forEach((book, index) => {
         const bookDiv = document.createElement("div");
         bookDiv.className =
-          "p-4 bg-moss hover:bg-hover text-earie rounded-lg cursor-pointer shadow-xs shadow-moss";
+          "p-4 bg-moss hover:bg-hover text-earie rounded-lg cursor-pointer shadow-sm shadow-earie";
         bookDiv.dataset.bookIndex = index.toString(); // Store the index to retrieve book details
 
         bookDiv.addEventListener("click", () => {
@@ -124,14 +120,14 @@
 
         let imageElement;
         if (book.thumbnail) {
-          imageElement = ` <a href="#bookDetails"> <img class="w-20 md:w-64 hover:opacity-65 object-cover rounded-md" src="${book.thumbnail}" alt="${book.title}" width="150" height="200" /></a>`;
+          imageElement = ` <a href="#bookDetails"> <img class="w-56 md:w-64 hover:opacity-65 object-cover rounded-md shadow-sm shadow-earie" src="${book.thumbnail}" alt="${book.title}" width="150" height="200" /></a>`;
         } else {
           imageElement = `<p class="text-center text-earie">No Image Available</p>`;
         }
 
         bookDiv.innerHTML = `
           ${imageElement}
-          <h2 class="font-bold text-lg mt-2 text-citron">${book.title}</h2>
+          <h2 class="font-bold text-sm md:text-md mt-2 text-citron">${book.title}</h2>
           <p class="text-sm opacity-75 text-silk">${book.authors.join(", ")}</p>
         `;
 
