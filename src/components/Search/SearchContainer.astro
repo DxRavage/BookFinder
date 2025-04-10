@@ -1,4 +1,4 @@
-<section class="flex justify-center text-center gap-4">
+<section class="flex justify-center text-center gap-4 p-4">
   <input
     class="p-2 rounded-md border border-citron text-earie focus:outline-none focus:ring-2 focus:ring-moss focus:border-transparent"
     type="text"
@@ -52,7 +52,8 @@
         json.items?.map((item: any) => ({
           title: item.volumeInfo?.title || "No title",
           authors: item.volumeInfo?.authors || ["Unknown"],
-          description:item.volumeInfo?.description || "No description available",
+          description:
+            item.volumeInfo?.description || "No description available",
           thumbnail: item.volumeInfo?.imageLinks?.thumbnail || null,
           publishedDate: item.volumeInfo?.publishedDate || "Unknown",
           categories: item.volumeInfo?.categories || [],
@@ -127,8 +128,8 @@
 
         bookDiv.innerHTML = `
           ${imageElement}
-          <h2 class="font-bold text-sm md:text-md mt-2 text-citron">${book.title}</h2>
-          <p class="text-sm opacity-75 text-silk">${book.authors.join(", ")}</p>
+          <h2 class="font-bold text-xs md:text-md lg:text-lg mt-2 text-citron">${book.title}</h2>
+          <p class="text-xs md:text-sm opacity-75 text-silk">${book.authors.join(", ")}</p>
         `;
 
         booksContainer.appendChild(bookDiv);
