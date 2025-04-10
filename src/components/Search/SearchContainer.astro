@@ -124,7 +124,7 @@
 
         let imageElement;
         if (book.thumbnail) {
-          imageElement = `<img class="w-20 md:w-64 hover:opacity-65 object-cover rounded-md" src="${book.thumbnail}" alt="${book.title}" width="150" height="200" />`;
+          imageElement = ` <a href="#bookDetails"> <img class="w-20 md:w-64 hover:opacity-65 object-cover rounded-md" src="${book.thumbnail}" alt="${book.title}" width="150" height="200" /></a>`;
         } else {
           imageElement = `<p class="text-center text-earie">No Image Available</p>`;
         }
