@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="../styles/global.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-14 b text-moss dark:text-silk">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+  :root {
+    --color-earie: #252422;
+    --color-emerald: #283618;
+    --color-moss: #606c38;
+    --color-hover: #CCC5B9;
+    --color-citron: #d6c356;
+    --color-silk: #e0e1dd;
+
+    background-color: #576646;
+    background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+  }
+
+  html {
+    font-family: "tektur", system-ui, sans-serif;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+</style>
